@@ -104,38 +104,6 @@ app.delete('/tasks/:id', async (req, res) => {
 });
 
 
-//const User = require('../models/User');
-/*
-passport.use(new GoogleStrategy({
-  clientID: 'your_google_client_id',
-  clientSecret: 'your_google_client_secret',
-  callbackURL: 'http://localhost:5000/api/auth/google/callback'
-}, async (accessToken, refreshToken, profile, done) => {
-  const { id, emails, displayName } = profile;
-  try {
-    let user = await User.findOne({ googleId: id });
-    if (user) {
-      return done(null, user);
-    }
-    user = new User({
-      googleId: id,
-      email: emails[0].value,
-      name: displayName,
-      password: 'GoogleAuth'
-    });
-    await user.save();
-    done(null, user);
-  } catch (err) {
-    done(err, false);
-  }
-}));*/
-
-//module.exports = passport;
-
-//const passport = require('passport');
-//const User = require('../models/User');
-
-//const router = express.Router();
 
 // Register
 app.post('/register', async (req, res) => {
@@ -196,67 +164,6 @@ app.get('/user', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-// Routes
-/*
-// Board Routes
-app.get('/boards', async (req, res) => {
-  const boards = await Board.find();
-  res.json(boards);
-});
-
-app.post('/boards', async (req, res) => {
-  const board = new Board(req.body);
-  await board.save();
-  res.json(board);
-});
-
-app.put('/boards/:id', async (req, res) => {
-  const board = await Board.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  res.json(board);
-});
-
-app.delete('/boards/:id', async (req, res) => {
-  await Board.findByIdAndDelete(req.params.id);
-  res.json({ message: 'Board deleted' });
-});
-
-// Task Routes
-app.get('/boards/:boardId/tasks', async (req, res) => {
-  const tasks = await Task.find({ boardId: req.params.boardId });
-  res.json(tasks);
-});
-
-app.post('/boards/:boardId/tasks', async (req, res) => {
-  const task = new Task({ ...req.body, boardId: req.params.boardId });
-  await task.save();
-  res.json(task);
-});
-
-app.put('/tasks/:id', async (req, res) => {
-  const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  res.json(task);
-});
-
-app.delete('/tasks/:id', async (req, res) => {
-  await Task.findByIdAndDelete(req.params.id);
-  res.json({ message: 'Task deleted' });
-});*/
-
-/*
-// Google Auth
-app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-
-app.get('/google/callback', 
-  passport.authenticate('google', { session: false }), 
-  (req, res) => {
-    const token = jwt.sign({ user: { id: req.user.id } }, 'secret', { expiresIn: 360000 });
-    res.redirect(`http://localhost:3000?token=${token}`);
-  }
-);*/
-
-//module.exports = router;
-
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

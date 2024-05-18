@@ -54,11 +54,3 @@ const SignIn = () => {
 
 export default SignIn;
 
-/*<div>
-      <form onSubmit={onSubmit}>
-        <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" />
-        <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" />
-        <button type="submit">Sign In</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>*/
